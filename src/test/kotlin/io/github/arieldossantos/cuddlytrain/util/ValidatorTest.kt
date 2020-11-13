@@ -1,6 +1,7 @@
 package io.github.arieldossantos.cuddlytrain.util
 
 import io.github.arieldossantos.cuddlytrain.exceptions.APIExceptions
+import org.junit.Assert
 import org.junit.Test
 
 val errorConst = 123
@@ -15,7 +16,7 @@ class ValidatorTest {
         try{
             Validator.validateId(errorConst)
         } catch (e: Exception) {
-            assert(e is APIExceptions)
+            Assert.assertTrue(e is APIExceptions)
         }
     }
 
