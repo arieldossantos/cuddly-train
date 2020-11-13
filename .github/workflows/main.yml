@@ -27,3 +27,9 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: block42-blockchain-company/ktlint-action@da2e7f37a885a5b679dfffff990032d52f3d5011
         uses: block42-blockchain-company/ktlint-action@v1.12
+        
+      # check gradle dependencies  
+      - name: Check gradle dependencies
+        # You may pin to the exact commit or the version.
+        # uses: OrangeLabs-moe/gradle-actions@5e96d4f5eafbe559dae76600102bc799ba210ae6
+        uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-14
