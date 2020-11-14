@@ -1,6 +1,6 @@
 package io.github.arieldossantos.cuddlytrain.util
 
-import io.github.arieldossantos.cuddlytrain.exceptions.APIExceptions
+import io.github.arieldossantos.cuddlytrain.exceptions.APIException
 import org.junit.Assert
 import org.junit.Test
 
@@ -16,11 +16,16 @@ class ValidatorTest {
         try{
             Validator.validateId(errorConst)
         } catch (e: Exception) {
-            Assert.assertTrue(e is APIExceptions)
+            Assert.assertTrue(e is APIException)
         }
     }
 
+    /**
+     * Checks id validator success returns Unit
+     */
+    @Test
     fun testIdValidatorSuccess() {
-        TODO("Criar teste de validação do ID aqui")
+        val success = Validator.validateId(successfulConst)
+        Assert.assertSame(success, Unit)
     }
 }

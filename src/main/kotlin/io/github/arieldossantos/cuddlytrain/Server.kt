@@ -1,7 +1,7 @@
 package io.github.arieldossantos.cuddlytrain
 
 import io.github.arieldossantos.cuddlytrain.controller.TransactionController
-import io.github.arieldossantos.cuddlytrain.exceptions.APIExceptions
+import io.github.arieldossantos.cuddlytrain.exceptions.APIException
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -46,7 +46,7 @@ fun Application.module() {
 
     //Add default error handler
     install(StatusPages) {
-        exception<APIExceptions> {
+        exception<APIException> {
             print(it.localizedMessage)
             call.respond(
                 HttpStatusCode.BadRequest,

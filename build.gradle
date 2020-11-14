@@ -29,6 +29,15 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    baseName 'cuddlytrain'
+    manifest {
+        attributes 'Main-Class': 'io.github.arieldossantos.cuddlytrain.Server'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
