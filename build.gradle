@@ -30,7 +30,7 @@ repositories {
 }
 
 jar {
-    baseName 'cuddlytrain'
+    archiveName 'cuddlytrain.jar'
     manifest {
         attributes 'Main-Class': 'io.github.arieldossantos.cuddlytrain.ServerKt'
     }
