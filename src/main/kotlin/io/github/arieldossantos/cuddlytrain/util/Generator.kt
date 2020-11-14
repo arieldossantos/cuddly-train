@@ -22,7 +22,9 @@ object Generator {
      * @param id user id
      * @param year current year
      */
-    fun generateTransactionValue(id: Int, year: Int, transactionIndex: Int): Int {
-        return General.getFirstDigit(id) * General.getFirstDigit(year) * transactionIndex;
+    fun generateTransactionValue(id: Int, year: Int, transactionIndex: Int): Int { //TODO improve value generation
+        return General.getFirstDigit(id) *
+            General.getFirstDigit(year) * transactionIndex
     }
+    
 }

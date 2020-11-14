@@ -27,8 +27,8 @@ import java.text.DateFormat
 @Location("/")
 class index()
 //Transactions
-@Location("/{id}/transactions/{year}/{month}")
-open class Transaction (val id: Int, val year: Int, val month: Int)
+@Location("/{userId}/transactions/{year}/{month}")
+open class TransactionRequest(val userId: Int, val year: Int, val month: Int)
 
 
 //Create app module
@@ -63,10 +63,9 @@ fun Application.module() {
             call.respondText("Hello world", ContentType.Text.Html)
         }
         //Transaction context definition
-        get<Transaction> {
-            transaction -> call.respondText(
-                TransactionController.returnUserTransactions(transaction),
-                ContentType.Text.Html
+        get<TransactionRequest> {
+            request -> call.respond(
+                TransactionController.returnUserTransactions(request)
             )
         }
     }
