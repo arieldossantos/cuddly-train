@@ -12,6 +12,7 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.github.arieldossantos.cuddlytrain.responses.ErrorResponse
 import io.ktor.gson.gson
+import java.lang.Integer.parseInt
 import java.text.DateFormat
 
 /**
@@ -71,11 +72,23 @@ fun Application.module() {
     }
 }
 
+/**
+ * Get port from env or default
+ */
+private fun getPort(): Int {
+    val port = System.getenv("PORT")
+    return if (!port.isNullOrEmpty()) {
+        parseInt(port)
+    } else {
+        8080
+    }
+}
+
 //Main function of server :)
 fun main() {
     embeddedServer(
         Netty,
-        port = 80,
+        port = getPort(),
         module = Application::module
     ).start()
 }
