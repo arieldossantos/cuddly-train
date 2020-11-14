@@ -32,7 +32,7 @@ repositories {
 jar {
     baseName 'cuddlytrain'
     manifest {
-        attributes 'Main-Class': 'io.github.arieldossantos.cuddlytrain.Server'
+        attributes 'Main-Class': 'io.github.arieldossantos.cuddlytrain.ServerKt'
     }
 
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
