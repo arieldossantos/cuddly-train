@@ -4,17 +4,17 @@ import io.github.arieldossantos.cuddlytrain.exceptions.APIException
 import org.junit.Assert
 import org.junit.Test
 
-val errorConst = 123
-val successfulConst = 1234
 
 class ValidatorTest {
+    private val ERROR = 123
+    private val SUCCESS = 1234
     /**
      * Checks id validator ERROR
      */
     @Test
     fun testIdValidatorError() {
         try{
-            Validator.validateId(errorConst)
+            Validator.validateId(ERROR)
         } catch (e: Exception) {
             Assert.assertTrue(e is APIException)
         }
@@ -25,7 +25,7 @@ class ValidatorTest {
      */
     @Test
     fun testIdValidatorSuccess() {
-        val success = Validator.validateId(successfulConst)
+        val success = Validator.validateId(SUCCESS)
         Assert.assertSame(success, Unit)
     }
 }

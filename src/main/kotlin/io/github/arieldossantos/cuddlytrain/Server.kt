@@ -36,6 +36,7 @@ fun Application.module() {
     //Add default headers
     install(DefaultHeaders)
     install(Locations)
+
     //Add json content support for classes with Gson
     install(ContentNegotiation) {
         gson {
@@ -46,8 +47,8 @@ fun Application.module() {
 
     //Add default error handler
     install(StatusPages) {
+        //Default api exception (BadRequest)
         exception<APIException> {
-            print(it.localizedMessage)
             call.respond(
                 HttpStatusCode.BadRequest,
                 ErrorResponse(it.localizedMessage)
