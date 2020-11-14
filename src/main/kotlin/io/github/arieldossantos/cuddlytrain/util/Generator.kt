@@ -14,4 +14,15 @@ object Generator {
     fun totalTransactionsInPeriod(id: Int, month: Int): Int {
         return General.getFirstDigit(id) * month
     }
+
+
+    /**
+     * Generate a random transaction value
+     *
+     * @param id user id
+     * @param year current year
+     */
+    fun generateTransactionValue(id: Int, year: Int, transactionIndex: Int): Int {
+        return General.getFirstDigit(id) * General.getFirstDigit(year) * transactionIndex;
+    }
 }
