@@ -75,7 +75,7 @@ fun Application.module() {
 fun main() {
     embeddedServer(
         Netty,
-        port = 8080,
+        port = 80,
         module = Application::module
     ).start()
 }
