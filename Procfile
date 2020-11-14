@@ -1,1 +1,1 @@
-web: java -jar build/libs/cuddly-train.jar
+web: java -jar build/libs/cuddlytrain.jar
