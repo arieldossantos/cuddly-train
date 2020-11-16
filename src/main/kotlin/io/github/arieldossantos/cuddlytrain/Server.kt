@@ -28,7 +28,7 @@ import java.text.DateFormat
 @Location("/")
 class index()
 //Transactions
-@Location("/{userId}/transactions/{year}/{month}")
+@Location("/{userId}/transacoes/{year}/{month}")
 open class TransactionRequest(val userId: Int, val year: Int, val month: Int)
 
 
