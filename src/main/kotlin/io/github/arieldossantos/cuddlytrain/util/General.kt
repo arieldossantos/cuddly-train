@@ -1,5 +1,8 @@
 package io.github.arieldossantos.cuddlytrain.util
 
+import kotlin.math.abs
+import kotlin.math.max
+
 
 /**
  * All functions of general purpose
@@ -7,6 +10,8 @@ package io.github.arieldossantos.cuddlytrain.util
 object General {
     /**
      * Get first digit of any int
+     *
+     * @param x any int
      */
     fun getFirstDigit(x: Int): Int {
         var newX = x
@@ -19,8 +24,27 @@ object General {
 
     /**
      * Get last digit of any int
+     *
+     * @param x any int
      */
     fun getLastDigit(x: Int): Int {
-        return kotlin.math.abs(x) % 10
+        return abs(x) % 10
+    }
+
+
+    /**
+     * Reduce first number
+     *
+     * @param x any int
+     * @param maxNumber max number
+     */
+    fun reduceNumberUntil(x: Int, maxNumber: Int): Int {
+        var newX = x
+        while (newX > maxNumber) {
+            newX -= 10
+        }
+
+        //return absolute number checking maxnumber again
+        return if(abs(newX) > maxNumber) maxNumber - 1 else abs(newX)
     }
 }

@@ -1,5 +1,6 @@
 package io.github.arieldossantos.cuddlytrain
 
+import com.fasterxml.jackson.databind.SerializationFeature
 import io.github.arieldossantos.cuddlytrain.controller.TransactionController
 import io.github.arieldossantos.cuddlytrain.exceptions.APIException
 import io.ktor.application.*
@@ -11,9 +12,8 @@ import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.github.arieldossantos.cuddlytrain.responses.ErrorResponse
-import io.ktor.gson.gson
+import io.ktor.jackson.*
 import java.lang.Integer.parseInt
-import java.text.DateFormat
 
 /**
  * Server file
@@ -40,9 +40,8 @@ fun Application.module() {
 
     //Add json content support for classes with Gson
     install(ContentNegotiation) {
-        gson {
-            setDateFormat(DateFormat.LONG)
-            setPrettyPrinting()
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT);
         }
     }
 

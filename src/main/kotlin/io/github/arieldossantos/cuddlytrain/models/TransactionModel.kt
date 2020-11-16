@@ -1,6 +1,6 @@
 package io.github.arieldossantos.cuddlytrain.models
 
-import java.util.*
+import java.sql.Timestamp
 
 /**
  * Transaction model
@@ -9,4 +9,4 @@ import java.util.*
  * @param data Data da transação
  * @param valor Valor da transação
  */
-class TransactionModel(val descricao: String, val data: Date, val valor: Int)
+class TransactionModel(val descricao: String, val data: Timestamp, val valor: Int)

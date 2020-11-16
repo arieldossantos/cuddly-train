@@ -23,7 +23,7 @@ object TransactionController {
         for(i in 0 until transactionLength) {
             val transactionDate         = Generator.generateRandomDate(req.userId, req.month, req.year, i + 1)
             val transactionValue        = Generator.generateRandomTransactionValue(req.userId, req.year, i + 1)
-            val transactionDescription  = Generator.generateRandomDescription(req.userId, req.month, i + 1)
+            val transactionDescription  = Generator.generateRandomDescription(req.userId, req.month, i + 1).toLowerCase()
 
             //New transaction
             val currentTransaction = TransactionModel(

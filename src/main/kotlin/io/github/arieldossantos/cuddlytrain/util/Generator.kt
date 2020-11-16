@@ -9,7 +9,7 @@ import kotlin.math.abs
  * Generator functions for MOCK API
  */
 object Generator {
-    val CONSONANT = "BCDFGHJLMNPQRSTVWXZ"
+    val CONSONANT = "BCDFGHJLMNPQRSTVWXZ "
     val VOWEL = "AEIOU"
 
 
@@ -98,7 +98,6 @@ object Generator {
      * @param transactionIndex transaction index
      */
     fun generateRandomDescription(userId: Int, month: Int, transactionIndex: Int): String {
-        //TODO "Improve generation script"
         val stringSize = if (transactionIndex % 2 == 0) {
             generateControlledRandomNumberWithDigits(
                 month,
@@ -106,20 +105,20 @@ object Generator {
             )
         } else {
             generateControlledRandomNumberWithDigits(
-                transactionIndex,
+                transactionIndex + 1,
                 General.getFirstDigit(userId)
             )
         }
         val stringBuffer = StringBuffer()
 
 
-        for (i in 10.. if(stringSize > 60) 60 else stringSize) {
+        for (i in 0.. if(stringSize > 60 || stringSize < 10) 30 else stringSize) {
             val randomNumberForChar =
                 generateControlledRandomNumberWithDigits(transactionIndex, i, General.getFirstDigit(userId))
             if (i % 2 == 0) {
-                stringBuffer.append(CONSONANT[if (randomNumberForChar < 19) randomNumberForChar else 3])
+                stringBuffer.append(CONSONANT[General.reduceNumberUntil(randomNumberForChar, 19)])
             } else {
-                stringBuffer.append(VOWEL[if (randomNumberForChar < 6) randomNumberForChar else 3])
+                stringBuffer.append(VOWEL[General.reduceNumberUntil(randomNumberForChar, 4)])
             }
         }
         return if (stringBuffer.length % 2 == 0) stringBuffer.toString() else stringBuffer.substring(0, stringBuffer.length - 1)
