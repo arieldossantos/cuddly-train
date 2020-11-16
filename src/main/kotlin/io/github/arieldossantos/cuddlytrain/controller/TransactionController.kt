@@ -12,21 +12,24 @@ import java.sql.Timestamp
  */
 object TransactionController {
     fun returnUserTransactions(req: TransactionRequest): ArrayList<TransactionModel> {
-        //Validate current id
+        //Validations
         Validator.validateId(req.userId)
+        Validator.validateMonth(req.month)
+
         val transactionList = ArrayList<TransactionModel>();
         val transactionLength = Generator.totalTransactionsInPeriod(req.userId, req.month)
 
         //For transaction generate
         for(i in 0 until transactionLength) {
+            val transactionDate         = Generator.generateRandomDate(req.userId, req.month, req.year, i + 1)
+            val transactionValue        = Generator.generateRandomTransactionValue(req.userId, req.year, i + 1)
+            val transactionDescription  = Generator.generateRandomDescription(req.userId, req.month, i + 1)
+
+            //New transaction
             val currentTransaction = TransactionModel(
-                "teste", //TODO legible description generation
-                Date(2020, 10, 1), //TODO random date generate
-                Generator.generateTransactionValue(
-                    req.userId,
-                    req.year,
-                    i + 1
-                )
+                transactionDescription,
+                transactionDate,
+                transactionValue
             )
             //Add transaction to list
             transactionList.add(currentTransaction)

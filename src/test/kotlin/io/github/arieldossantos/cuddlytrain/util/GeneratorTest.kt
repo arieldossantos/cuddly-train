@@ -19,8 +19,8 @@ class GeneratorTest {
      */
     @Test
     fun testGenerateTransactionValue() {
-        Assert.assertSame(Generator.generateTransactionValue(12243, 2020, 1), 2)
-        Assert.assertSame(Generator.generateTransactionValue(3423, 2019, 12), 72)
-        Assert.assertSame(Generator.generateTransactionValue(723, 1997, 5), 35)
+        Assert.assertSame(Generator.generateRandomTransactionValue(12243, 2020, 1), 4)
+        Assert.assertSame(Generator.generateRandomTransactionValue(3423, 2019, 12), 31)
+        Assert.assertSame(Generator.generateRandomTransactionValue(723, 1997, 5), 27)
     }
 }

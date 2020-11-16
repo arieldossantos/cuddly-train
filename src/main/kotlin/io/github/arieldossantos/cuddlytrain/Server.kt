@@ -61,7 +61,7 @@ fun Application.module() {
     install(Routing) {
         //Index context definition
         get<index> {
-            call.respondText("Hello world", ContentType.Text.Html)
+            call.respondRedirect("https://github.com/arieldossantos/cuddly-train/blob/main/README.md", permanent = true)
         }
         //Transaction context definition
         get<TransactionRequest> {
