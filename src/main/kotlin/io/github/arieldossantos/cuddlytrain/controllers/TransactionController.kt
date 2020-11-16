@@ -1,11 +1,9 @@
-package io.github.arieldossantos.cuddlytrain.controller
+package io.github.arieldossantos.cuddlytrain.controllers
 
 import io.github.arieldossantos.cuddlytrain.TransactionRequest
 import io.github.arieldossantos.cuddlytrain.models.TransactionModel
-import io.github.arieldossantos.cuddlytrain.util.Generator
-import io.github.arieldossantos.cuddlytrain.util.Validator
-import java.sql.Date
-import java.sql.Timestamp
+import io.github.arieldossantos.cuddlytrain.utils.Generator
+import io.github.arieldossantos.cuddlytrain.utils.Validator
 
 /**
  * Controller operator of any transaction request

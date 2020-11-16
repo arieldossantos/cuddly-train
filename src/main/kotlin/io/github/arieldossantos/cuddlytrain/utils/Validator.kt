@@ -1,7 +1,6 @@
-package io.github.arieldossantos.cuddlytrain.util
+package io.github.arieldossantos.cuddlytrain.utils
 
 import io.github.arieldossantos.cuddlytrain.exceptions.APIException
-import java.lang.RuntimeException
 
 /**
  * Object validator

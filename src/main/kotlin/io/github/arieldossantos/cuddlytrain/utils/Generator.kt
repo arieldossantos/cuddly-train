@@ -1,4 +1,4 @@
-package io.github.arieldossantos.cuddlytrain.util
+package io.github.arieldossantos.cuddlytrain.utils
 
 import java.sql.Timestamp
 import java.util.*

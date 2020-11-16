@@ -1,7 +1,6 @@
-package io.github.arieldossantos.cuddlytrain.util
+package io.github.arieldossantos.cuddlytrain.utils
 
 import kotlin.math.abs
-import kotlin.math.max
 
 
 /**

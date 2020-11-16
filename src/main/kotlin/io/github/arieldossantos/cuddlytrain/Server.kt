@@ -1,7 +1,7 @@
 package io.github.arieldossantos.cuddlytrain
 
 import com.fasterxml.jackson.databind.SerializationFeature
-import io.github.arieldossantos.cuddlytrain.controller.TransactionController
+import io.github.arieldossantos.cuddlytrain.controllers.TransactionController
 import io.github.arieldossantos.cuddlytrain.exceptions.APIException
 import io.ktor.application.*
 import io.ktor.features.*
@@ -41,7 +41,8 @@ fun Application.module() {
     //Add json content support for classes with Gson
     install(ContentNegotiation) {
         jackson {
-            enable(SerializationFeature.INDENT_OUTPUT);
+            enable(SerializationFeature.INDENT_OUTPUT)
+
         }
     }
 
