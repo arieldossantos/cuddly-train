@@ -1,4 +1,4 @@
-package io.github.arieldossantos.cuddlytrain.responses
+package io.github.arieldossantos.cuddlytrain.controllers.responses
 
 
 /**

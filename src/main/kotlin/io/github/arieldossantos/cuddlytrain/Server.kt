@@ -1,8 +1,9 @@
 package io.github.arieldossantos.cuddlytrain
 
+import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.SerializationFeature
-import io.github.arieldossantos.cuddlytrain.controllers.TransactionController
-import io.github.arieldossantos.cuddlytrain.exceptions.APIException
+import io.github.arieldossantos.cuddlytrain.controllers.transactions.TransactionController
+import io.github.arieldossantos.cuddlytrain.controllers.exceptions.APIException
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -11,7 +12,7 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import io.github.arieldossantos.cuddlytrain.responses.ErrorResponse
+import io.github.arieldossantos.cuddlytrain.controllers.responses.ErrorResponse
 import io.ktor.jackson.*
 import java.lang.Integer.parseInt
 
@@ -42,7 +43,7 @@ fun Application.module() {
     install(ContentNegotiation) {
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
-
+            enable(MapperFeature.USE_ANNOTATIONS)
         }
     }
 
@@ -51,7 +52,7 @@ fun Application.module() {
         //Default api exception (BadRequest)
         exception<APIException> {
             call.respond(
-                HttpStatusCode.BadRequest,
+                it.statusCode,
                 ErrorResponse(it.localizedMessage)
             )
         }
