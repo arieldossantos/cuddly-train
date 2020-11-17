@@ -14,8 +14,8 @@ import java.util.*
  * @param valor Valor da transação
  */
 class TransactionModel(val userId: Int, val month: Int, val year: Int, val transactionIndex: Int) {
-    private val CONSONANT = "BCDFGHJLMNPQRSTVWXZ "
-    private val VOWEL = "AEIOU"
+    private val CONSONANT = "bcdfghjlmnpqrstvwxz "
+    private val VOWEL = "aeiou"
     private lateinit var transactionDate: Timestamp
     private lateinit var transactionDescription: String
     private var transactionValue: Int = 0
