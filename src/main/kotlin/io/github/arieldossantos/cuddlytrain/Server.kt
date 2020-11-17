@@ -1,5 +1,6 @@
 package io.github.arieldossantos.cuddlytrain
 
+import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.github.arieldossantos.cuddlytrain.controllers.transactions.TransactionController
 import io.github.arieldossantos.cuddlytrain.controllers.exceptions.APIException
@@ -42,7 +43,7 @@ fun Application.module() {
     install(ContentNegotiation) {
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
-
+            enable(MapperFeature.USE_ANNOTATIONS)
         }
     }
 

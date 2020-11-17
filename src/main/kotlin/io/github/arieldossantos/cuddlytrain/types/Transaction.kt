@@ -1,12 +1,16 @@
 package io.github.arieldossantos.cuddlytrain.types
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.sql.Timestamp
 
 /**
  * Transaction type
  *
- * @param description
- * @param date
- * @param value
+ * @param description transaction description
+ * @param date date in timestamp
+ * @param value transaction value
  */
-class Transaction(val description: String, val date: Timestamp, val value: Int)
+class Transaction(
+    @JsonProperty("descricao")         val description: String,
+    @JsonProperty("data")              val date: Timestamp,
+    @JsonProperty("valor")             val value: Int)
