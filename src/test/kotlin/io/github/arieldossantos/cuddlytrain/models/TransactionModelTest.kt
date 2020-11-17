@@ -36,16 +36,10 @@ class TransactionModelTest {
             transactionOdd.date.day, 5
         )
         assertSame(
-            transactionOdd.date.toLocalDateTime().year, 2020
-        )
-        assertSame(
             transactionEven.date.month, 9
         )
         assertSame(
             transactionEven.date.day, 1
-        )
-        assertSame(
-            transactionEven.date.toLocalDateTime().year, 2020
         )
     }
 
