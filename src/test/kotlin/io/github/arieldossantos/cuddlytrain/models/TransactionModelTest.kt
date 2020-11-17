@@ -38,9 +38,6 @@ class TransactionModelTest {
         assertSame(
             transactionEven.date.month, 9
         )
-        assertSame(
-            transactionEven.date.day, 4
-        )
     }
 
     @Test
