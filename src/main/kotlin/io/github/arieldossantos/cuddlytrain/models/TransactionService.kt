@@ -13,7 +13,7 @@ object TransactionService {
             //New transaction
             val currentTransaction = TransactionModel(userId, month, year, i)
             //Add transaction to list
-            transactionList.add(currentTransaction.transaction)
+            transactionList.add(currentTransaction.createTransaction())
         }
 
         return transactionList

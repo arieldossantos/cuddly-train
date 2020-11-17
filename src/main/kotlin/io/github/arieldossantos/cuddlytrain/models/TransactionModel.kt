@@ -13,16 +13,26 @@ import java.util.*
  * @param data Data da transação
  * @param valor Valor da transação
  */
-class TransactionModel {
+class TransactionModel(val userId: Int, val month: Int, val year: Int, val transactionIndex: Int) {
     private val CONSONANT = "BCDFGHJLMNPQRSTVWXZ "
     private val VOWEL = "AEIOU"
-    val transaction: Transaction
+    private lateinit var transactionDate: Timestamp
+    private lateinit var transactionDescription: String
+    private var transactionValue: Int = 0
 
-    constructor(userId: Int, month: Int, year: Int, transactionIndex: Int) {
-        val transactionDate         = this.generateRandomDate(userId, month, year, transactionIndex)
-        val transactionValue        = this.generateRandomTransactionValue(userId, year, transactionIndex)
-        val transactionDescription  = this.generateRandomDescription(userId, month, transactionIndex).toLowerCase()
-        this.transaction = Transaction(transactionDescription, transactionDate, transactionValue)
+    init {
+        this.generateRandomDate()
+        this.generateRandomDescription()
+        this.generateRandomTransactionValue()
+    }
+
+    /**
+     * Create a transaction type
+     *
+     * @return Transaction
+     */
+    open fun createTransaction(): Transaction {
+        return Transaction(transactionDescription, transactionDate, transactionValue)
     }
 
     /**
@@ -31,8 +41,8 @@ class TransactionModel {
      * @param id user id
      * @param year current year
      */
-    fun generateRandomTransactionValue(userId: Int, year: Int, transactionIndex: Int): Int {
-        return if (transactionIndex % 2 == 0) {
+    private fun generateRandomTransactionValue() {
+        this.transactionValue = if (transactionIndex % 2 == 0) {
             Randomize.generateControlledRandomNumberWithDigits(
                 General.getLastDigit(userId),
                 General.getFirstDigit(year),
@@ -40,7 +50,7 @@ class TransactionModel {
             )
         } else {
             Randomize.generateControlledRandomNumberWithDigits(
-                General.getFirstDigit(userId),
+                General.getFirstDigit(this.userId),
                 General.getLastDigit(year),
                 transactionIndex
             )
@@ -55,7 +65,7 @@ class TransactionModel {
      * @param month date month
      * @param year date year
      */
-    fun generateRandomDate(userId: Int, month: Int, year: Int, transactionIndex: Int): Timestamp {
+    private fun generateRandomDate() {
         //generate day
         var day = Randomize.generateControlledRandomNumberWithDigits(
             transactionIndex,
@@ -87,7 +97,7 @@ class TransactionModel {
             minutes
         )
 
-        return Timestamp.from(newCal.toInstant())
+        this.transactionDate = Timestamp.from(newCal.toInstant())
     }
 
 
@@ -98,7 +108,7 @@ class TransactionModel {
      * @param month month number
      * @param transactionIndex transaction index
      */
-    fun generateRandomDescription(userId: Int, month: Int, transactionIndex: Int): String {
+    private fun generateRandomDescription() {
         val stringSize = if (transactionIndex % 2 == 0) {
             Randomize.generateControlledRandomNumberWithDigits(
                 month,
@@ -122,6 +132,6 @@ class TransactionModel {
                 stringBuffer.append(VOWEL[General.reduceNumberUntil(randomNumberForChar, 4)])
             }
         }
-        return if (stringBuffer.length % 2 == 0) stringBuffer.toString() else stringBuffer.substring(0, stringBuffer.length - 1)
+        this.transactionDescription = if (stringBuffer.length % 2 == 0) stringBuffer.toString() else stringBuffer.substring(0, stringBuffer.length - 1)
     }
 }

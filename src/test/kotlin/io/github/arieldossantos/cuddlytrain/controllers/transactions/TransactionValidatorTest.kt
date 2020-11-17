@@ -1,4 +1,4 @@
-package io.github.arieldossantos.cuddlytrain.utils
+package io.github.arieldossantos.cuddlytrain.controllers.transactions
 
 import io.github.arieldossantos.cuddlytrain.controllers.transactions.TransactionValidator
 import io.github.arieldossantos.cuddlytrain.controllers.exceptions.APIException
@@ -6,7 +6,7 @@ import org.junit.Assert
 import org.junit.Test
 
 
-class ValidatorTest {
+class TransactionValidatorTest {
     private val ERRORID = 123
     private val SUCCESSID = 1234
     /**
