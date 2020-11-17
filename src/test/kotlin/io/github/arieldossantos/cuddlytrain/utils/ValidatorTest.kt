@@ -1,6 +1,7 @@
 package io.github.arieldossantos.cuddlytrain.utils
 
-import io.github.arieldossantos.cuddlytrain.exceptions.APIException
+import io.github.arieldossantos.cuddlytrain.controllers.transactions.TransactionValidator
+import io.github.arieldossantos.cuddlytrain.controllers.exceptions.APIException
 import org.junit.Assert
 import org.junit.Test
 
@@ -14,7 +15,7 @@ class ValidatorTest {
     @Test
     fun testIdValidatorError() {
         try{
-            Validator.validateId(ERRORID)
+            TransactionValidator.validateId(ERRORID)
         } catch (e: Exception) {
             Assert.assertTrue(e is APIException)
         }
@@ -25,7 +26,7 @@ class ValidatorTest {
      */
     @Test
     fun testIdValidatorSuccess() {
-        val success = Validator.validateId(SUCCESSID)
+        val success = TransactionValidator.validateId(SUCCESSID)
         Assert.assertSame(success, Unit)
     }
 
@@ -36,7 +37,7 @@ class ValidatorTest {
     @Test
     fun testMonthValidatorError() {
         try{
-            Validator.validateMonth(0)
+            TransactionValidator.validateMonth(0)
         } catch (e: Exception) {
             Assert.assertTrue(e is APIException)
         }
@@ -47,7 +48,7 @@ class ValidatorTest {
      */
     @Test
     fun testMonthValidatorSuccess() {
-        val success = Validator.validateMonth(12)
+        val success = TransactionValidator.validateMonth(12)
         Assert.assertSame(success, Unit)
     }
 }
