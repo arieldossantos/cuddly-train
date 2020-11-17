@@ -33,3 +33,7 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: OrangeLabs-moe/gradle-actions@5e96d4f5eafbe559dae76600102bc799ba210ae6
         uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-14
+        
+      
+      - name: After test
+        run: bash <(curl -s https://codecov.io/bash) -t ad17db64-990d-44d1-9877-616ad1a66dae
