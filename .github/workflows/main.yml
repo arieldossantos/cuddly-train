@@ -34,11 +34,6 @@ jobs:
         # uses: OrangeLabs-moe/gradle-actions@5e96d4f5eafbe559dae76600102bc799ba210ae6
         uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-14
         
-      - name: Codecov
-        # You may pin to the exact commit or the version.
-        # uses: codecov/codecov-action@239febf655bba88b16ff5dea1d3135ea8663a1f9
-        uses: codecov/codecov-action@v1.0.15
-        env:
-          CODECOV_TOKEN: "ad17db64-990d-44d1-9877-616ad1a66dae"
-        with:
-          token: cc80b06f-d7da-4a3c-b845-b57a5e50bede
+      
+      - name: After test
+        run: bash <(curl -s https://codecov.io/bash) -t ad17db64-990d-44d1-9877-616ad1a66dae
