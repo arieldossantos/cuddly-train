@@ -1,7 +1,7 @@
 # Cuddly Train
 
 ![Heroku](https://heroku-badge.herokuapp.com/?app=cuddly-train)
-[![codecov](https://codecov.io/gh/arieldossantos/cuddly-train/branch/codecov/graph/badge.svg)](https://codecov.io/gh/arieldossantos/cuddly-train)
+[![codecov](https://codecov.io/gh/arieldossantos/cuddly-train/branch/main/graph/badge.svg)](https://codecov.io/gh/arieldossantos/cuddly-train)
 ### Acessando a API
 
 Para acessar a API, você deve utilizar o endereço [https://cuddly-train.herokuapp.com/](https://cuddly-train.herokuapp.com/). Este endereço pode demorar alguns segundos para funcionar, mas é o que temos para hoje :(.
